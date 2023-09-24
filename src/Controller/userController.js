@@ -20,7 +20,8 @@ exports.create = async (req, res) => {
     const user = new User({
       name: req.body.name,
       email: req.body.email,
-      password: hashedPassword
+      password: hashedPassword,
+      role: req.body.role,
     });
     await user.save();
     res.status(201).json(user);
@@ -43,7 +44,7 @@ exports.login =  async (req, res) => {
         return res.status(400).send('Contraseña incorrecta');
     }
 
-    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ _id: user._id, role: user.role, email: user.email  }, process.env.JWT_SECRET);
 
     res.send({ token });
 };
