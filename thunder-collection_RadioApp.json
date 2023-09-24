@@ -1,0 +1,192 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "RadioApp",
+    "dateExported": "2023-09-24T17:02:52.922Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "ea1e3b0b-9050-40f9-8cd8-3873975113d9",
+            "name": "User",
+            "containerId": "",
+            "created": "2023-09-24T01:53:24.000Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "386d5eb3-7696-4083-b2fb-6abc64dc8fea",
+            "name": "Programs",
+            "containerId": "",
+            "created": "2023-09-24T16:18:42.973Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "0ae4bdcd-4beb-45a0-8fb7-429ec912cd44",
+            "colId": "deb04b8a-8db1-4cb2-af25-15e55511fbdc",
+            "containerId": "ea1e3b0b-9050-40f9-8cd8-3873975113d9",
+            "name": "getAll",
+            "url": "localhost:3000/api/users/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-09-24T01:53:33.727Z",
+            "modified": "2023-09-24T17:00:43.230Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTBmOTZmNzY0MDc5OGU2M2RlMmUyZDQiLCJpYXQiOjE2OTU1MjQ3NTl9.3acaG0Ecp7cCwLjmbOGF7O91qCeEw9FIRC-f_ibxs4I",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTEwNjIxY2VkNzEwNWFlMjBkOGVjNGQiLCJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6ImVtYWlsMkBlbWFpbC5jb20iLCJpYXQiOjE2OTU1NzQ4MzZ9.cu4kIk075ybBpDHM2CXm0AXRsWv8DmLBanYEJSaaNyQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "216772ef-03e4-48a3-9308-f16fc05563df",
+            "colId": "deb04b8a-8db1-4cb2-af25-15e55511fbdc",
+            "containerId": "ea1e3b0b-9050-40f9-8cd8-3873975113d9",
+            "name": "createUser",
+            "url": "localhost:3000/api/users/register",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-09-24T01:54:06.515Z",
+            "modified": "2023-09-24T16:21:48.271Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Admin2\",\n  \"email\":\"email2@email.com\",\n  \"password\":\"1234\",\n  \"role\":\"admin\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "00fb7fdb-636e-435b-81b9-5f539bcf6b69",
+            "colId": "deb04b8a-8db1-4cb2-af25-15e55511fbdc",
+            "containerId": "ea1e3b0b-9050-40f9-8cd8-3873975113d9",
+            "name": "login",
+            "url": "localhost:3000/api/users/login",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-09-24T01:55:15.906Z",
+            "modified": "2023-09-24T17:00:36.126Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTBmOTZmNzY0MDc5OGU2M2RlMmUyZDQiLCJpYXQiOjE2OTU1MjQ3NTl9.3acaG0Ecp7cCwLjmbOGF7O91qCeEw9FIRC-f_ibxs4I\"",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"email2@email.com\",\n  \"password\":\"1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "75f95ea0-b174-4413-b2d0-f9a4f80fee6e",
+            "colId": "deb04b8a-8db1-4cb2-af25-15e55511fbdc",
+            "containerId": "386d5eb3-7696-4083-b2fb-6abc64dc8fea",
+            "name": "getAll",
+            "url": "localhost:3000/api/programs/",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-09-24T16:18:50.146Z",
+            "modified": "2023-09-24T16:26:17.128Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTEwNjIxY2VkNzEwNWFlMjBkOGVjNGQiLCJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6ImVtYWlsMkBlbWFpbC5jb20iLCJpYXQiOjE2OTU1NzI1MTR9.ut3ooiIkiwHeSepL65YQixBvdJixi83j2LqtxLSRh8w"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b5c07306-4ed2-4fa6-b19d-f76a3ccecbd1",
+            "colId": "deb04b8a-8db1-4cb2-af25-15e55511fbdc",
+            "containerId": "386d5eb3-7696-4083-b2fb-6abc64dc8fea",
+            "name": "getOne",
+            "url": "localhost:3000/api/programs/651063e3e39befd24d569769",
+            "method": "GET",
+            "sortNum": 55000,
+            "created": "2023-09-24T16:26:28.249Z",
+            "modified": "2023-09-24T16:35:52.882Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTEwNjIxY2VkNzEwNWFlMjBkOGVjNGQiLCJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6ImVtYWlsMkBlbWFpbC5jb20iLCJpYXQiOjE2OTU1NzI1MTR9.ut3ooiIkiwHeSepL65YQixBvdJixi83j2LqtxLSRh8w"
+            },
+            "tests": []
+        },
+        {
+            "_id": "cc9bc547-842f-4381-9547-844ef2c167b1",
+            "colId": "deb04b8a-8db1-4cb2-af25-15e55511fbdc",
+            "containerId": "386d5eb3-7696-4083-b2fb-6abc64dc8fea",
+            "name": "create",
+            "url": "localhost:3000/api/programs/",
+            "method": "POST",
+            "sortNum": 57500,
+            "created": "2023-09-24T16:26:30.917Z",
+            "modified": "2023-09-24T17:01:49.257Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Romanticos at Nigth\",\n  \"description\": \"Descripción del programa\",\n  \"schedule\": \"21:00hs to 22:30hs\",\n  \"host\": \"Annie Piannetti\",\n  \"category\": \"Romanticos\"\n}\n",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTEwNjIxY2VkNzEwNWFlMjBkOGVjNGQiLCJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6ImVtYWlsMkBlbWFpbC5jb20iLCJpYXQiOjE2OTU1NzI1MTR9.ut3ooiIkiwHeSepL65YQixBvdJixi83j2LqtxLSRh8w"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9fbfca9e-15ec-4c12-84a7-3a5740a28390",
+            "colId": "deb04b8a-8db1-4cb2-af25-15e55511fbdc",
+            "containerId": "386d5eb3-7696-4083-b2fb-6abc64dc8fea",
+            "name": "update",
+            "url": "localhost:3000/api/programs/651063e3e39befd24d569769",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2023-09-24T16:26:26.837Z",
+            "modified": "2023-09-24T17:02:07.570Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Romanticos at Nigth\",\n  \"description\": \"Descripción del programa\",\n  \"schedule\": \"21:00hs to 22:30hs\",\n  \"host\": \"Annie Piannetti\",\n  \"category\": \"Romanticos\"\n}\n",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTEwNjIxY2VkNzEwNWFlMjBkOGVjNGQiLCJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6ImVtYWlsMkBlbWFpbC5jb20iLCJpYXQiOjE2OTU1NzI1MTR9.ut3ooiIkiwHeSepL65YQixBvdJixi83j2LqtxLSRh8w"
+            },
+            "tests": []
+        },
+        {
+            "_id": "d880d1b7-7fd4-4b5a-ac77-a51cc802e734",
+            "colId": "deb04b8a-8db1-4cb2-af25-15e55511fbdc",
+            "containerId": "386d5eb3-7696-4083-b2fb-6abc64dc8fea",
+            "name": "delete",
+            "url": "localhost:3000/api/programs/651063e3e39befd24d569769",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2023-09-24T16:27:24.686Z",
+            "modified": "2023-09-24T17:02:39.079Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTEwNjIxY2VkNzEwNWFlMjBkOGVjNGQiLCJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6ImVtYWlsMkBlbWFpbC5jb20iLCJpYXQiOjE2OTU1NzI1MTR9.ut3ooiIkiwHeSepL65YQixBvdJixi83j2LqtxLSRh8w"
+            },
+            "tests": []
+        }
+    ]
+}
