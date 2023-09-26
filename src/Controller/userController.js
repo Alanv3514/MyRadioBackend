@@ -1,8 +1,8 @@
 const User = require('../Model/user.js');
 const bcrypt = require( 'bcryptjs');
+const { log } = require('console');
 const jwt = require('jsonwebtoken');
 
-const saltRounds = 10;
 
 /**
  * @swagger
@@ -123,9 +123,10 @@ exports.getAll = async (req, res) => {
 *                   description: Error message
 */
 exports.create = async (req, res) => {
+
   try {
-    const salt = await bcrypt.genSalt(saltRounds);
-    const hashedPassword = await bcrypt.hash(req.body.password, process.env.SALT);
+    const salt = await bcrypt.genSalt(parseInt(process.env.SALT_ROUNDS));
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
     const user = new User({
       name: req.body.name,
       email: req.body.email,
