@@ -1,6 +1,7 @@
-import User from '../Model/user.js';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+const User = require('../Model/user.js');
+const bcrypt = require( 'bcryptjs');
+const jwt = require('jsonwebtoken');
+
 const saltRounds = 10;
 
 /**
@@ -124,7 +125,7 @@ exports.getAll = async (req, res) => {
 exports.create = async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(saltRounds);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    const hashedPassword = await bcrypt.hash(req.body.password, process.env.SALT);
     const user = new User({
       name: req.body.name,
       email: req.body.email,
