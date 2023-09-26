@@ -1,13 +1,13 @@
-const User = require('../Model/user.js');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import User from '../Model/user.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 const saltRounds = 10;
 
 /**
  * @swagger
  * tags:
  *   name: Users
- *   description: API para usuarios
+ *   description: API for users
  */
 
 /**
@@ -25,19 +25,19 @@ const saltRounds = 10;
  *       properties:
  *         id:
  *           type: string
- *           description: ID generado automáticamente por MongoDB
+ *           description: Automatically generated ID by MongoDB
  *         name:
  *           type: string
- *           description: Nombre del usuario
+ *           description: User's name
  *         email:
  *           type: string
- *           description: Correo electrónico del usuario
+ *           description: User's email
  *         password:
  *           type: string
- *           description: Contraseña del usuario
+ *           description: User's password
  *         role:
  *           type: string
- *           description: Rol del usuario
+ *           description: User's role
  *       example:
  *         name: John Doe
  *         email: johndoe@example.com
@@ -55,13 +55,13 @@ const saltRounds = 10;
  * @swagger
  * /api/users:
  *   get:
- *     summary: Obtiene todos los usuarios
+ *     summary: Get all users
  *     tags: [Users]
  *     security:
  *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: Lista de usuarios
+ *         description: List of users
  *         content:
  *           application/json:
  *             schema:
@@ -69,7 +69,7 @@ const saltRounds = 10;
  *               items:
  *                 $ref: '#/components/schemas/User'
  *       400:
- *         description: Error al obtener los usuarios
+ *         description: Error getting users
  *         content:
  *           application/json:
  *             schema:
@@ -77,7 +77,7 @@ const saltRounds = 10;
  *               properties:
  *                 error:
  *                   type: string
- *                   description: Mensaje de error
+ *                   description: Error message
  */
 
 
@@ -95,7 +95,7 @@ exports.getAll = async (req, res) => {
 * @swagger
 * /api/users/register:
 *   post:
-*     summary: Crea un nuevo usuario
+*     summary: Create a new user
 *     tags: [Users]
 *     requestBody:
 *       required: true
@@ -105,13 +105,13 @@ exports.getAll = async (req, res) => {
 *             $ref: '#/components/schemas/User'
 *     responses:
 *       201:
-*         description: Usuario creado
+*         description: User created
 *         content:
 *           application/json:
 *             schema:
 *               $ref: '#/components/schemas/User'
 *       400:
-*         description: Error al crear el usuario
+*         description: Error creating user
 *         content:
 *           application/json:
 *             schema:
@@ -119,7 +119,7 @@ exports.getAll = async (req, res) => {
 *               properties:
 *                 error:
 *                   type: string
-*                   description: Mensaje de error
+*                   description: Error message
 */
 exports.create = async (req, res) => {
   try {
@@ -142,7 +142,7 @@ exports.create = async (req, res) => {
  * @swagger
  * /api/users/login:
  *   post:
- *     summary: Inicia sesión y devuelve un token JWT
+ *     summary: Log in and return a JWT token
  *     tags: [Users]
  *     requestBody:
  *       required: true
@@ -156,13 +156,13 @@ exports.create = async (req, res) => {
  *             properties:
  *               email:
  *                 type: string
- *                 description: Correo electrónico del usuario
+ *                 description: User's email
  *               password:
  *                 type: string
- *                 description: Contraseña del usuario
+ *                 description: User's password
  *     responses:
  *       200:
- *         description: Token JWT
+ *         description: JWT token
  *         content:
  *           application/json:
  *             schema:
@@ -170,9 +170,9 @@ exports.create = async (req, res) => {
  *               properties:
  *                 token:
  *                   type: string
- *                   description: Token JWT
+ *                   description: JWT token
  *       400:
- *         description: Error al iniciar sesión
+ *         description: Error logging in
  *         content:
  *           application/json:
  *             schema:
@@ -180,7 +180,7 @@ exports.create = async (req, res) => {
  *               properties:
  *                 error:
  *                   type: string
- *                   description: Mensaje de error
+ *                   description: Error message
  */
 
 exports.login = async (req, res) => {
@@ -188,13 +188,13 @@ exports.login = async (req, res) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    return res.status(400).send('Usuario no encontrado');
+    return res.status(400).send('User not found');
   }
 
   const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
   if (!isPasswordCorrect) {
-    return res.status(400).send('Contraseña incorrecta');
+    return res.status(400).send('Incorrect password');
   }
 
   const token = jwt.sign({ _id: user._id, role: user.role, email: user.email }, process.env.JWT_SECRET);
